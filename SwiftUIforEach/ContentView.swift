@@ -7,10 +7,20 @@
 
 import SwiftUI
 
+struct Result: Identifiable {
+    let id = UUID()
+    let score: Int
+}
+
 struct ContentView: View {
+    let results = [Result(score: 8), Result(score: 5), Result(score: 10)]
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            ForEach(results) { result in
+                Text("Result: \(result.score)")
+            }
+        }
     }
 }
 
